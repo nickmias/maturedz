@@ -50,7 +50,7 @@ body {
     width: 100%;
 }
 
-/* LOOKBOOK */
+//* LOOKBOOK */
 .lookbook{
     padding:100px 40px;
 }
@@ -99,21 +99,31 @@ body {
     line-height:1.8;
 }
 
-/* mobile */
 @media(max-width:768px){
-    .lookbook-grid{
+
+    .shop{
+        padding:60px 20px;
+    }
+
+    .produk{
         grid-template-columns:1fr;
     }
-    .large{
-        grid-column:span 1;
+
+    .card{
+        padding:15px;
     }
-}
 
-.look-item img{
-    filter:grayscale(100%);
-}
+    .hero h1{
+        font-size:1.8rem;
+        letter-spacing:0.2em;
+    }
 
-.look-item:hover img{
-    filter:grayscale(0%);
-    transform:scale(1.05);
+    .hero p{
+        font-size:12px;
+    }
+
+}
+.produk{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 }
