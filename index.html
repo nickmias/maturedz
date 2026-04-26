@@ -27,9 +27,10 @@ nav{
     padding:20px 40px;
     display:flex;
     justify-content:space-between;
-    z-index:1000;
+    align-items:center;
     background:rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
+    z-index:1000;
 }
 nav h2{
     letter-spacing:0.2em;
@@ -47,6 +48,9 @@ nav a{
 }
 nav a:hover{
     color:#fff;
+}
+.cart{
+    font-size:14px;
 }
 
 /* HERO */
@@ -67,7 +71,7 @@ nav a:hover{
     background:rgba(0,0,0,0.7);
 }
 .hero h1{
-    font-size:3.5rem;
+    font-size:3rem;
     letter-spacing:0.5em;
     z-index:1;
 }
@@ -117,8 +121,6 @@ nav a:hover{
     background:#111;
     padding:20px;
     transition:0.3s;
-    position:relative;
-    overflow:hidden;
 }
 .card:hover{
     transform:translateY(-10px);
@@ -132,15 +134,13 @@ nav a:hover{
     margin-top:15px;
 }
 .card h3{
-    letter-spacing:0.1em;
     font-size:14px;
 }
 .price{
     color:#aaa;
-    font-size:13px;
 }
 
-/* SELECT */
+/* INPUT */
 select{
     width:100%;
     padding:10px;
@@ -166,16 +166,18 @@ button:hover{
     color:#fff;
 }
 
+/* CHECKOUT */
+.checkout{
+    text-align:center;
+    margin-top:50px;
+}
+
 /* ABOUT */
 .about{
     padding:100px 40px;
     text-align:center;
     max-width:800px;
     margin:auto;
-}
-.about h2{
-    letter-spacing:0.3em;
-    margin-bottom:20px;
 }
 .about p{
     color:#aaa;
@@ -186,7 +188,6 @@ button:hover{
 footer{
     padding:40px;
     text-align:center;
-    font-size:12px;
     color:#555;
 }
 
@@ -209,6 +210,7 @@ footer{
         <li><a href="#shop">SHOP</a></li>
         <li><a href="#about">ABOUT</a></li>
     </ul>
+    <div class="cart">🛒 <span id="cart-count">0</span></div>
 </nav>
 
 <!-- HERO -->
@@ -249,14 +251,14 @@ footer{
                     <option>WHITE</option>
                 </select>
 
-                <button onclick="order('BLACK TEE','size1','warna1')">ADD TO CART</button>
+                <button onclick="addToCart('BLACK TEE','size1','warna1')">ADD TO CART</button>
             </div>
         </div>
 
         <div class="card">
             <img src="images/baju2.jpg">
             <div class="card-info">
-                <h3>OVERSIZE HOODIE</h3>
+                <h3>HOODIE</h3>
                 <p class="price">Rp 250.000</p>
 
                 <select id="size2">
@@ -270,16 +272,19 @@ footer{
                     <option>CREAM</option>
                 </select>
 
-                <button onclick="order('HOODIE','size2','warna2')">ADD TO CART</button>
+                <button onclick="addToCart('HOODIE','size2','warna2')">ADD TO CART</button>
             </div>
         </div>
 
+    </div>
+
+    <div class="checkout">
+        <button onclick="checkout()">CHECKOUT</button>
     </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="about">
-    <h2>ABOUT</h2>
     <p>
         maturedzinthought is more than clothing.  
         it's a reflection of perspective, silence, and identity.  
@@ -289,20 +294,33 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-    © 2026 maturedzinthought — all rights reserved
+    © 2026 maturedzinthought
 </footer>
 
 <script>
-function order(nama,sizeId,warnaId){
-    var size=document.getElementById(sizeId).value;
-    var warna=document.getElementById(warnaId).value;
+let cart = [];
 
-    var pesan=`Halo, saya ingin order:
-Produk: ${nama}
-Size: ${size}
-Warna: ${warna}`;
+function addToCart(nama, sizeId, warnaId){
+    const size = document.getElementById(sizeId).value;
+    const warna = document.getElementById(warnaId).value;
 
-    window.open("https://wa.me/6287824381467?text="+encodeURIComponent(pesan));
+    cart.push({nama, size, warna});
+    document.getElementById("cart-count").innerText = cart.length;
+}
+
+function checkout(){
+    if(cart.length === 0){
+        alert("Cart kosong 😅");
+        return;
+    }
+
+    let pesan = "Halo, saya ingin order:%0A%0A";
+
+    cart.forEach((item, i) => {
+        pesan += `${i+1}. ${item.nama} - ${item.size} - ${item.warna}%0A`;
+    });
+
+    window.open("https://wa.me/6287824381467?text=" + pesan);
 }
 </script>
 
