@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maturedzinthought</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Maturedzinthought</h1>
+    <p>Built from Thought. Worn with Meaning.</p>
+
+    <a href="#shop" class="btn">Shop Now</a>
+</section>
+
+<!-- VIDEO (NANTI ISI SENDIRI) -->
+<section class="video">
+    <video autoplay muted loop>
+        <source src="videos/brand.mp4" type="video/mp4">
+    </video>
+</section>
+
+<!-- SHOP -->
+<section id="shop" class="shop">
+    <h2>Collection</h2>
+
+    <div class="produk">
+
+        <div class="card">
+            <img src="images/baju1.jpg">
+            <h3>T-Shirt Black</h3>
+            <p>Rp 120.000</p>
+
+            <select id="warna1">
+                <option>Hitam</option>
+                <option>Putih</option>
+            </select>
+
+            <button onclick="order('T-Shirt Black','warna1')">Order</button>
+        </div>
+
+        <div class="card">
+            <img src="images/baju2.jpg">
+            <h3>Hoodie Oversize</h3>
+            <p>Rp 250.000</p>
+
+            <select id="warna2">
+                <option>Hitam</option>
+                <option>Cream</option>
+            </select>
+
+            <button onclick="order('Hoodie Oversize','warna2')">Order</button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function order(nama, id){
+    var warna = document.getElementById(id).value;
+    var pesan = "Saya mau beli " + nama + " warna " + warna;
+
+    window.open("https://wa.me/6287824381467?text=" + encodeURIComponent(pesan));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: black;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+/* VIDEO */
+.video video {
+    width: 100%;
+}
+
+/* SHOP */
+.shop {
+    padding: 50px;
+    text-align: center;
+}
+
+.produk {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #111;
+    padding: 20px;
+    width: 200px;
+}
+
+.card img {
+    width: 100%;
+}
