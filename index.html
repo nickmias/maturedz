@@ -4,20 +4,138 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maturedzinthought</title>
-<link rel="stylesheet" href="style.css">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+body{
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    background:url('images/hero.jpg') center/cover no-repeat;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+}
+.hero h1{
+    font-size:4rem;
+    letter-spacing:0.4em;
+    z-index:1;
+}
+.hero p{
+    margin-top:10px;
+    color:#aaa;
+    letter-spacing:0.2em;
+    z-index:1;
+}
+.btn{
+    margin-top:30px;
+    padding:12px 30px;
+    border:1px solid #fff;
+    text-decoration:none;
+    color:#fff;
+    transition:0.3s;
+    z-index:1;
+}
+.btn:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* VIDEO */
+.video video{
+    width:100%;
+    height:60vh;
+    object-fit:cover;
+    filter:contrast(1.1) brightness(0.7);
+}
+
+/* SHOP */
+.shop{
+    padding:80px 40px;
+}
+.shop h2{
+    text-align:center;
+    margin-bottom:50px;
+    letter-spacing:0.3em;
+}
+.produk{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.card{
+    background:#111;
+    padding:20px;
+    transition:0.3s;
+}
+.card:hover{
+    transform:translateY(-10px);
+}
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+.card h3{
+    letter-spacing:0.1em;
+}
+.card p{
+    color:#aaa;
+    margin:10px 0;
+}
+select,button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    outline:none;
+}
+button{
+    background:#fff;
+    color:#000;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{
+    background:#333;
+    color:#fff;
+}
+</style>
 </head>
 
 <body>
 
 <!-- HERO -->
 <section class="hero">
-    <h1>Maturedzinthought</h1>
-    <p>Built from Thought. Worn with Meaning.</p>
-
-    <a href="#shop" class="btn">Shop Now</a>
+    <h1>MATUREDZINTHOUGHT</h1>
+    <p>BUILT FROM THOUGHT. WORN WITH MEANING.</p>
+    <a href="#shop" class="btn">ENTER DROP</a>
 </section>
 
-<!-- VIDEO (NANTI ISI SENDIRI) -->
+<!-- VIDEO -->
 <section class="video">
     <video autoplay muted loop>
         <source src="videos/brand.mp4" type="video/mp4">
@@ -26,45 +144,40 @@
 
 <!-- SHOP -->
 <section id="shop" class="shop">
-    <h2>Collection</h2>
+    <h2>NEW COLLECTION</h2>
 
     <div class="produk">
 
         <div class="card">
             <img src="images/baju1.jpg">
-            <h3>T-Shirt Black</h3>
+            <h3>BLACK TEE</h3>
             <p>Rp 120.000</p>
-
             <select id="warna1">
-                <option>Hitam</option>
-                <option>Putih</option>
+                <option>BLACK</option>
+                <option>WHITE</option>
             </select>
-
-            <button onclick="order('T-Shirt Black','warna1')">Order</button>
+            <button onclick="order('BLACK TEE','warna1')">ORDER</button>
         </div>
 
         <div class="card">
             <img src="images/baju2.jpg">
-            <h3>Hoodie Oversize</h3>
+            <h3>OVERSIZE HOODIE</h3>
             <p>Rp 250.000</p>
-
             <select id="warna2">
-                <option>Hitam</option>
-                <option>Cream</option>
+                <option>BLACK</option>
+                <option>CREAM</option>
             </select>
-
-            <button onclick="order('Hoodie Oversize','warna2')">Order</button>
+            <button onclick="order('OVERSIZE HOODIE','warna2')">ORDER</button>
         </div>
 
     </div>
 </section>
 
 <script>
-function order(nama, id){
-    var warna = document.getElementById(id).value;
-    var pesan = "Saya mau beli " + nama + " warna " + warna;
-
-    window.open("https://wa.me/6287824381467?text=" + encodeURIComponent(pesan));
+function order(nama,id){
+    var warna=document.getElementById(id).value;
+    var pesan=`I want to order ${nama} color ${warna}`;
+    window.open("https://wa.me/6287824381467?text="+encodeURIComponent(pesan));
 }
 </script>
 
