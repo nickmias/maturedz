@@ -87,7 +87,7 @@ nav {
 }
 
 .brand-logo img {
-    height: 100px;
+    height: 60px;
     width: auto;
     display: block;
     transition: transform 0.3s ease;
@@ -327,9 +327,50 @@ footer {
 }
 
 /* RESPONSIVE */
+/* =========================================
+   RESPONSIVE (KHUSUS LAYAR HP & TABLET) 
+   ========================================= */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-content h1 { font-size: 3rem; }
+    /* 1. Navbar di HP: Biar logo & cart rapi */
+    nav {
+        padding: 1rem;
+    }
+    
+    .brand-logo img {
+        height: 30px; /* Logo sedikit dikecilin di HP */
+    }
+
+    /* (Sementara menu link disembunyikan biar ga nutupin layar) */
+    .nav-links { 
+        display: none; 
+    }
+
+    /* 2. Ukuran Teks Hero/Home */
+    .hero-content h1 { 
+        font-size: 3.5rem; 
+        letter-spacing: -2px;
+    }
+
+    /* 3. Jarak / Spacing Section */
+    .shop, .about {
+        padding: 3rem 1rem; /* Padding kiri-kanan dikurangin biar produk lebih lega */
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* 4. Grid Produk: Memaksa 1 baris 1 produk di HP biar fotonya jelas */
+    .produk-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* 5. Loader Logo */
+    .loader-logo {
+        width: 100px;
+    }
 }
 
 /* SOLD OUT STAMP */
