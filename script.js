@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
             loader.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
             setTimeout(() => {
                 loader.remove();
-            }, 800); 
-        }, 2000); 
+            }, 300); 
+        }, 300); 
     });
 
     // --- 2. SOUND LOGIC ---
@@ -84,6 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         text += "%0A*AWAITING CONFIRMATION.*";
         
         // Ganti dengan nomor WA aslimu
-        window.open(`https://wa.me/6281234567890?text=${text}`, "_blank");
+        window.open(`https://wa.me/6287824381467?text=${text}`, "_blank");
     });
 });
