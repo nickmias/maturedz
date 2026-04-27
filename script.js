@@ -10,8 +10,8 @@ window.addEventListener("load", () => {
         // Setelah animasi transisi selesai, hapus elemen dari DOM
         setTimeout(() => {
             loader.remove();
-        }, 800); // Waktu transisi penutupan
-    }, 2000); // <--- INI DURASI LOADINGNYA (2 DETIK)
+        }, 500); // Waktu transisi penutupan
+    }, 500); // <--- INI DURASI LOADINGNYA (2 DETIK)
 });
 
     // --- 2. SOUND LOGIC ---
