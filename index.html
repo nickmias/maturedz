@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Maturedzinthought - Clothing brand built from thought, worn with meaning">
     <meta name="theme-color" content="#000000">
-    <title>MATUREDZINTHOUGHT| ARCHIVE</title>
+    <title>MATUREDZINTHOUGHT | ARCHIVE</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div id="loader">
-    <h1 class="loader-text">MATUREDZINTHOUGHT</h1>
-</div>
 
-<audio id="bg-sound" loop>
-    <source src="audio/ambient.mp3" type="audio/mpeg">
-</audio>
-<button id="sound-toggle">SOUND: OFF</button>
+    <div id="loader">
+        <img src="images/logo.png" alt="Maturedzinthought Logo" class="loader-logo">
+    </div>
+
+    <audio id="bg-sound" loop>
+        <source src="audio/ambient.mp3" type="audio/mpeg">
+    </audio>
+    <button id="sound-toggle">SOUND: OFF</button>
+
     <nav role="navigation" aria-label="Main navigation">
-        <h2 class="brand-logo">MATUREDZINTHOUGHT</h2>
+        <div class="brand-logo">
+            <a href="#home">
+                <img src="images/logo.png" alt="MATUREDZINTHOUGHT">
+            </a>
+        </div>
         <ul class="nav-links">
             <li><a href="#home">HOME</a></li>
             <li><a href="#shop">SHOP</a></li>
@@ -61,6 +66,7 @@
         </div>
 
         <div class="produk-grid">
+            
             <article class="card">
                 <div class="card-img-wrapper">
                     <img src="images/navy2.jpg" alt="Maturedz01 Black Tee">
@@ -77,7 +83,6 @@
                             <option>L</option>
                             <option>XL</option>
                         </select>
-
                         <select id="warna1" aria-label="Color">
                             <option value="" disabled selected>COLOR</option>
                             <option>BLACK</option>
@@ -105,7 +110,6 @@
                             <option>L</option>
                             <option>XL</option>
                         </select>
-
                         <select id="warna2" aria-label="Color">
                             <option value="" disabled selected>COLOR</option>
                             <option>BLACK</option>
@@ -116,6 +120,61 @@
                     <button class="add-to-cart-btn" data-product="HEAVY HOODIE" data-size="size2" data-color="warna2">ADD TO CART</button>
                 </div>
             </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="images/black1.jpg" alt="Graphic Tee">
+                </div>
+                <div class="card-info">
+                    <h3>GRAPHIC TEE 02</h3>
+                    <p class="price">IDR 165.000</p>
+
+                    <div class="selectors">
+                        <select id="size3" aria-label="Size">
+                            <option value="" disabled selected>SIZE</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                        </select>
+                        <select id="warna3" aria-label="Color">
+                            <option value="" disabled selected>COLOR</option>
+                            <option>WHITE</option>
+                            <option>WASHED BLACK</option>
+                        </select>
+                    </div>
+
+                    <button class="add-to-cart-btn" data-product="GRAPHIC TEE 02" data-size="size3" data-color="warna3">ADD TO CART</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="images/ncsy white.jpg" alt="Archive Cargo Pants">
+                </div>
+                <div class="card-info">
+                    <h3>ARCHIVE CARGO PANTS</h3>
+                    <p class="price">IDR 350.000</p>
+
+                    <div class="selectors">
+                        <select id="size4" aria-label="Size">
+                            <option value="" disabled selected>SIZE</option>
+                            <option>28</option>
+                            <option>30</option>
+                            <option>32</option>
+                            <option>34</option>
+                        </select>
+                        <select id="warna4" aria-label="Color">
+                            <option value="" disabled selected>COLOR</option>
+                            <option>BLACK</option>
+                            <option>OLIVE</option>
+                        </select>
+                    </div>
+
+                    <button class="add-to-cart-btn" data-product="ARCHIVE CARGO PANTS" data-size="size4" data-color="warna4">ADD TO CART</button>
+                </div>
+            </article>
+
         </div>
 
         <div class="checkout-wrapper">
@@ -134,12 +193,11 @@
 
     <footer>
         <div class="footer-content">
-            <h2>MATUREDZINTHOUGHT</h2>
+            <img src="images/logo.png" alt="Maturedzinthought" style="height: 30px; margin-bottom: 10px; filter: invert(1);">
             <p>© 2025 ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
