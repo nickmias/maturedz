@@ -1,95 +1,120 @@
-// Cart management
-let cart = [];
-const WHATSAPP_NUMBER = '6287824381467';
+document.addEventListener("DOMContentLoaded", () => {
+    // State Management untuk menyimpan data keranjang
+    let cart = [];
+    const cartCountElement = document.getElementById("cart-count");
+    const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+    const checkoutBtn = document.getElementById("checkout-btn");
 
-function addToCart(nama, sizeId, warnaId) {
-    const sizeElement = document.getElementById(sizeId);
-    const warnaElement = document.getElementById(warnaId);
+    // Fungsi Custom Notification bergaya Brutalist/Terminal
+    function showNotification(message, isError = false) {
+        // Hapus notifikasi lama jika ada
+        const existingNotif = document.querySelector(".custom-notif");
+        if (existingNotif) existingNotif.remove();
 
-    if (!sizeElement || !warnaElement) {
-        console.error('Invalid product IDs');
-        return false;
+        // Buat elemen notifikasi baru
+        const notif = document.createElement("div");
+        notif.className = "custom-notif";
+        notif.innerText = message;
+
+        // Styling langsung via JS agar tidak perlu ubah file CSS lagi
+        Object.assign(notif.style, {
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            backgroundColor: "#000000",
+            color: isError ? "#ff3333" : "#ffffff", // Merah untuk error, Putih untuk sukses
+            padding: "1rem 1.5rem",
+            border: `2px solid ${isError ? "#ff3333" : "#ffffff"}`,
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: "700",
+            fontSize: "0.9rem",
+            textTransform: "uppercase",
+            zIndex: "1000",
+            boxShadow: `4px 4px 0px ${isError ? "#ff3333" : "#ffffff"}`,
+            transition: "all 0.3s ease",
+            opacity: "0",
+            transform: "translateY(20px)"
+        });
+
+        document.body.appendChild(notif);
+
+        // Animasi masuk
+        setTimeout(() => {
+            notif.style.opacity = "1";
+            notif.style.transform = "translateY(0)";
+        }, 10);
+
+        // Animasi keluar otomatis setelah 3 detik
+        setTimeout(() => {
+            notif.style.opacity = "0";
+            notif.style.transform = "translateY(20px)";
+            setTimeout(() => notif.remove(), 300);
+        }, 3000);
     }
 
-    const size = sizeElement.value;
-    const warna = warnaElement.value;
-
-    if (!nama || !size || !warna) {
-        console.error('Missing product information');
-        return false;
-    }
-
-    cart.push({ nama, size, warna });
-    updateCartCount();
-    showNotification('Added to cart! ✓');
-    return true;
-}
-
-function updateCartCount() {
-    const cartCount = document.getElementById('cart-count');
-    if (cartCount) {
-        cartCount.innerText = cart.length;
-    }
-}
-
-function checkout() {
-    if (cart.length === 0) {
-        alert('Cart is empty 😅');
-        return false;
-    }
-
-    let message = 'Halo, saya ingin order:%0A%0A';
-
-    cart.forEach((item, i) => {
-        message += `${i + 1}. ${item.nama} - ${item.size} - ${item.warna}%0A`;
-    });
-
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-
-    // Clear cart after checkout
-    cart = [];
-    updateCartCount();
-    return true;
-}
-
-function showNotification(message) {
-    // Simple notification - could be enhanced with a toast library
-    console.log(message);
-}
-
-// Initialize event listeners on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize cart count
-    updateCartCount();
-
-    // Setup add to cart buttons
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    // Logika Add to Cart
     addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const productName = this.dataset.product;
-            const sizeId = this.dataset.size;
-            const colorId = this.dataset.color;
-            addToCart(productName, sizeId, colorId);
+        button.addEventListener("click", function() {
+            const productName = this.getAttribute("data-product");
+            const sizeId = this.getAttribute("data-size");
+            const colorId = this.getAttribute("data-color");
+            
+            const sizeElement = document.getElementById(sizeId);
+            const colorElement = document.getElementById(colorId);
+
+            const sizeValue = sizeElement.value;
+            const colorValue = colorElement.value;
+
+            // Validasi: pastikan user sudah memilih ukuran dan warna
+            if (!sizeValue || sizeValue === "SIZE" || !colorValue || colorValue === "COLOR") {
+                showNotification(`[-] SELECT SIZE AND COLOR FOR ${productName}.`, true);
+                return;
+            }
+
+            // Masukkan data ke array keranjang
+            cart.push({
+                product: productName,
+                size: sizeValue,
+                color: colorValue
+            });
+
+            // Update angka di navbar
+            cartCountElement.innerText = cart.length;
+
+            // Tampilkan notifikasi sukses
+            showNotification(`[+] ADDED: ${productName} | ${sizeValue} | ${colorValue}`);
+
+            // Reset pilihan dropdown setelah dimasukkan ke keranjang
+            sizeElement.selectedIndex = 0;
+            colorElement.selectedIndex = 0;
         });
     });
 
-    // Setup checkout button
-    const checkoutBtn = document.getElementById('checkout-btn');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', checkout);
-    }
+    // Logika Checkout (Generate Link WhatsApp)
+    checkoutBtn.addEventListener("click", () => {
+        if (cart.length === 0) {
+            showNotification("[-] YOUR CART IS EMPTY. ADD ITEMS FIRST.", true);
+            return;
+        }
 
-    // Add smooth scroll behavior (fallback for older browsers)
-    if (!CSS.supports('scroll-behavior', 'smooth')) {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+        showNotification("[✓] REDIRECTING TO SECURE CHECKOUT...");
+
+        // Format pesan otomatis untuk WhatsApp
+        let orderText = "SYSTEM ORDER INITIATED:%0A%0A";
+        
+        cart.forEach((item, index) => {
+            orderText += `[00${index + 1}] ${item.product} - ${item.color} (${item.size})%0A`;
         });
-    }
+        
+        orderText += "%0A*AWAITING CONFIRMATION.*";
+
+        // Ganti nomor ini dengan nomor WhatsApp admin / brand kamu (gunakan kode negara 62)
+        const whatsappNumber = "6287824381467";
+        const waLink = `https://wa.me/${whatsappNumber}?text=${orderText}`;
+
+        // Beri jeda 1.5 detik agar animasi notifikasi terlihat sebelum pindah tab
+        setTimeout(() => {
+            window.open(waLink, "_blank");
+        }, 1500);
+    });
 });

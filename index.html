@@ -1,151 +1,137 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Maturedzinthought - Clothing brand built from thought, worn with meaning">
-<meta name="theme-color" content="#000000">
-<title>Maturedzinthought</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Maturedzinthought - Clothing brand built from thought, worn with meaning">
+    <meta name="theme-color" content="#000000">
+    <title>MATUREDZINTHOUGHT | ARCHIVE</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav role="navigation" aria-label="Main navigation">
-    <h2>MATURED</h2>
-    <ul>
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#shop">SHOP</a></li>
-        <li><a href="#about">ABOUT</a></li>
-    </ul>
-    <div class="cart" aria-label="Shopping cart" role="button" tabindex="0">🛒 <span id="cart-count" aria-live="polite">0</span></div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-    <h1>MATUREDZINTHOUGHT</h1>
-    <p>BUILT FROM THOUGHT. WORN WITH MEANING.</p>
-    <a href="#shop" class="btn">ENTER DROP</a>
-</section>
-
-<!-- VIDEO -->
-<section class="video">
-    <video autoplay muted loop playsinline aria-label="Brand video showcase">
-        <source src="video/MATURE.mov" type="video/mp4">
-        Your browser does not support the video tag.s
-    </video>
-</section>
-
-<!-- LOOKBOOK -->
-<section class="lookbook">
-    <h2>LOOKBOOK</h2>
-
-    <div class="lookbook-grid">
-
-        <div class="look-item large">
-            <img src="images/navy1.jpg" alt="Navy collection showcase - lookbook item">
+    <nav role="navigation" aria-label="Main navigation">
+        <h2 class="brand-logo">MATUREDZINTHOUGHT</h2>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#shop">SHOP</a></li>
+            <li><a href="#about">ABOUT</a></li>
+        </ul>
+        <div class="cart" aria-label="Shopping cart" role="button" tabindex="0">
+            CART [<span id="cart-count" aria-live="polite">0</span>]
         </div>
+    </nav>
 
-        <div class="look-item">
-            <img src="images/navy2.jpg" alt="Navy collection detail - lookbook item">
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>MATUREDZ<br>INTHOUGHT</h1>
+            <a href="#shop" class="btn-primary">ENTER DROP</a>
         </div>
+    </section>
 
-        <div class="look-item text">
-            <p>
-                not everything needs to be said.  
-                some things are worn.
-            </p>
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>BUILT FROM THOUGHT. WORN WITH MEANING. /// </span>
+            <span>BUILT FROM THOUGHT. WORN WITH MEANING. /// </span>
+            <span>BUILT FROM THOUGHT. WORN WITH MEANING. /// </span>
+            <span>BUILT FROM THOUGHT. WORN WITH MEANING. /// </span>
         </div>
-
-        <div class="look-item">
-            <img src="images/navy1.jpg" alt="Navy collection - lookbook item">
-        </div>
-
-        <div class="look-item large">
-            <img src="images/navy2.jpg" alt="Navy collection final - lookbook item">
-        </div>
-
-    </div>
-</section>
-
-<!-- SHOP -->
-<section id="shop" class="shop">
-    <h2>NEW COLLECTION</h2>
-
-    <div class="produk">
-
-        <div class="card">
-            <img src="images/navy2.jpg" alt="Black Tee product image">
-            <div class="card-info">
-                <h3>Maturedz01</h3>
-                <p class="price">Rp 150.000</p>
-
-                <label for="size1">Size:</label>
-                <select id="size1" aria-label="Choose size for Black Tee">
-                    <option>S</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                </select>
-
-                <label for="warna1">Color:</label>
-                <select id="warna1" aria-label="Choose color for Black Tee">
-                    <option>BLACK</option>
-                    <option>WHITE</option>
-                </select>
-
-                <button class="add-to-cart-btn" data-product="BLACK TEE" data-size="size1" data-color="warna1">ADD TO CART</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="images/navy1.jpg" alt="Hoodie product image">
-            <div class="card-info">
-                <h3>HOODIE</h3>
-                <p class="price">Rp 250.000</p>
-
-                <label for="size2">Size:</label>
-                <select id="size2" aria-label="Choose size for Hoodie">
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                </select>
-
-                <label for="warna2">Color:</label>
-                <select id="warna2" aria-label="Choose color for Hoodie">
-                    <option>BLACK</option>
-                    <option>CREAM</option>
-                </select>
-
-                <button class="add-to-cart-btn" data-product="HOODIE" data-size="size2" data-color="warna2">ADD TO CART</button>
-            </div>
-        </div>
-
     </div>
 
-    <div class="checkout">
-        <button id="checkout-btn">CHECKOUT</button>
-    </div>
-</section>
+    <section class="video-section">
+        <video autoplay muted loop playsinline aria-label="Brand video showcase">
+            <source src="video/MATURE.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
 
-<!-- ABOUT -->
-<section id="about" class="about">
-    <p>
-        maturedzinthought is more than clothing.  
-        it's a reflection of perspective, silence, and identity.  
-        built for those who think deeper and move differently.
-    </p>
-</section>
+    <section id="shop" class="shop">
+        <div class="section-header">
+            <h2>NEW DROP [001]</h2>
+        </div>
 
-<!-- FOOTER -->
-<footer>
-    © 2026 maturedzinthought
-</footer>
+        <div class="produk-grid">
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="images/navy2.jpg" alt="Maturedz01 Black Tee">
+                </div>
+                <div class="card-info">
+                    <h3>MATUREDZ01 TEE</h3>
+                    <p class="price">IDR 150.000</p>
 
-<script src="script.js"></script>
+                    <div class="selectors">
+                        <select id="size1" aria-label="Size">
+                            <option value="" disabled selected>SIZE</option>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                        </select>
+
+                        <select id="warna1" aria-label="Color">
+                            <option value="" disabled selected>COLOR</option>
+                            <option>BLACK</option>
+                            <option>WHITE</option>
+                        </select>
+                    </div>
+
+                    <button class="add-to-cart-btn" data-product="MATUREDZ01 TEE" data-size="size1" data-color="warna1">ADD TO CART</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="images/navy1.jpg" alt="Maturedzinthought Hoodie">
+                </div>
+                <div class="card-info">
+                    <h3>HEAVY HOODIE</h3>
+                    <p class="price">IDR 250.000</p>
+
+                    <div class="selectors">
+                        <select id="size2" aria-label="Size">
+                            <option value="" disabled selected>SIZE</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                        </select>
+
+                        <select id="warna2" aria-label="Color">
+                            <option value="" disabled selected>COLOR</option>
+                            <option>BLACK</option>
+                            <option>CREAM</option>
+                        </select>
+                    </div>
+
+                    <button class="add-to-cart-btn" data-product="HEAVY HOODIE" data-size="size2" data-color="warna2">ADD TO CART</button>
+                </div>
+            </article>
+        </div>
+
+        <div class="checkout-wrapper">
+            <button id="checkout-btn" class="btn-primary">CHECKOUT CART</button>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>MANIFESTO</h2>
+        <p>
+            Maturedzinthought is more than clothing.<br>
+            It's a reflection of perspective, silence, and identity.<br>
+            Built for those who think deeper and move differently.
+        </p>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2>MATUREDZINTHOUGHT</h2>
+            <p>© 2026 ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
