@@ -1,3 +1,84 @@
+/* 1. CUSTOM SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #fff; border-radius: 0; }
+
+/* 2. BODY & CURSOR */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    cursor: crosshair; /* Kursor bidikan ala hardcore */
+}
+
+/* 3. LOADER SCREEN */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.loader-text {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 10px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.95); }
+}
+
+/* 4. HERO GLITCH & TEXT SHADOW */
+.hero-content h1 {
+    font-size: clamp(3rem, 10vw, 6rem); /* Ukuran adaptif */
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    letter-spacing: -3px;
+    text-shadow: 6px 6px 0px #222; /* Shadow tegas */
+}
+
+/* 5. SOUND TOGGLE BUTTON */
+#sound-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+    font-size: 10px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+/* 6. SOLD OUT STAMP */
+.sold-out {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.sold-out::after {
+    content: "SOLD OUT";
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    background: #ff0000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-weight: 900;
+    border: 2px solid #fff;
+    z-index: 10;
+}
 /* RESET & BASE */
 * {
     margin: 0;
@@ -22,7 +103,16 @@ body {
     color: var(--text-color);
     line-height: 1.5;
 }
-
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease;
+}
 /* NAVBAR */
 nav {
     display: flex;
@@ -80,6 +170,8 @@ nav {
     line-height: 1;
     margin-bottom: 2rem;
     letter-spacing: -2px;
+    /* Efek bayangan tegas */
+    text-shadow: 4px 4px 0px #333;
 }
 
 /* BUTTONS */
