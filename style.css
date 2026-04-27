@@ -43,9 +43,9 @@ body {
 }
 
 .loader-logo {
-    width: 150px;
+    width: 300px;
     height: auto;
-    animation: pulse 1.5s infinite;
+    animation: pulse 0.5s infinite;
 }
 
 @keyframes pulse {
@@ -87,7 +87,7 @@ nav {
 }
 
 .brand-logo img {
-    height: 600px;
+    height: 100px;
     width: auto;
     display: block;
     transition: transform 0.3s ease;

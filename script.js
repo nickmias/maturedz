@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
             loader.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
             setTimeout(() => {
                 loader.remove();
-            }, 300); 
-        }, 300); 
+            }, 100); 
+        }, 500); 
     });
 
     // --- 2. SOUND LOGIC ---
