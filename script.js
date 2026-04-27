@@ -84,6 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         text += "%0A*AWAITING CONFIRMATION.*";
         
         // Ganti dengan nomor WA aslimu
-        window.open(`https://wa.me/6287824381467?text=${text}`, "_blank");
+        window.open(`https://wa.me/6281318499277?text=${text}`, "_blank");
     });
 });
