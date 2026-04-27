@@ -1,13 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
     // --- 1. LOADER LOGIC ---
-    const loader = document.getElementById("loader");
-    window.addEventListener("load", () => {
+const loader = document.getElementById("loader");
+window.addEventListener("load", () => {
+    // Loader akan hilang tepat setelah 2 detik
+    setTimeout(() => {
+        // Efek transisi menyempit ke atas (pake clip-path biar gahar)
+        loader.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
+        
+        // Setelah animasi transisi selesai, hapus elemen dari DOM
         setTimeout(() => {
-            // Efek transisi kebuka ke atas
-            loader.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
-            setTimeout(() => loader.remove(), 1000);
-        }, 2000); // Tampil 2 detik
-    });
+            loader.remove();
+        }, 800); // Waktu transisi penutupan
+    }, 2000); // <--- INI DURASI LOADINGNYA (2 DETIK)
+});
 
     // --- 2. SOUND LOGIC ---
     const bgSound = document.getElementById("bg-sound");
