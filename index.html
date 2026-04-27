@@ -3,246 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maturedzinthought - Clothing brand built from thought, worn with meaning">
+<meta name="theme-color" content="#000000">
 <title>Maturedzinthought</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Montserrat',sans-serif;
-}
-body{
-    background:#000;
-    color:#fff;
-}
-
-/* NAVBAR */
-nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    padding:20px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    z-index:1000;
-}
-nav h2{
-    letter-spacing:0.2em;
-    font-size:14px;
-}
-nav ul{
-    display:flex;
-    gap:20px;
-    list-style:none;
-}
-nav a{
-    text-decoration:none;
-    color:#aaa;
-    font-size:12px;
-}
-nav a:hover{
-    color:#fff;
-}
-.cart{
-    font-size:14px;
-}
-
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:url('images/hero.jpg') center/cover no-repeat;
-    position:relative;
-}
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.7);
-}
-.hero h1{
-    font-size:3rem;
-    letter-spacing:0.5em;
-    z-index:1;
-}
-.hero p{
-    margin-top:10px;
-    color:#aaa;
-    letter-spacing:0.2em;
-    z-index:1;
-}
-.btn{
-    margin-top:30px;
-    padding:12px 30px;
-    border:1px solid #fff;
-    text-decoration:none;
-    color:#fff;
-    transition:0.3s;
-    z-index:1;
-}
-.btn:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* VIDEO */
-.v.video video{
-    width:100%;
-    height:auto;
-    max-height:50vh;
-    object-fit:cover;
-    filter:brightness(0.6);
-}
-<section class="lookbook">
-    <h2>LOOKBOOK</h2>
-
-    <div class="lookbook-grid">
-
-        <div class="look-item large">
-            <img src="images/navy1.jpg">
-        </div>
-
-        <div class="look-item">
-            <img src="images/navy2.jpg">
-        </div>
-
-        <div class="look-item text">
-            <p>
-                not everything needs to be said.  
-                some things are worn.
-            </p>
-        </div>
-
-        <div class="look-item">
-            <img src="images/navy1.jpg">
-        </div>
-
-        <div class="look-item large">
-            <img src="images/navy2.jpg">
-        </div>
-
-    </div>
-</section>
-/* SHOP */
-.shop{
-    padding:100px 40px;
-}
-.shop h2{
-    text-align:center;
-    margin-bottom:60px;
-    letter-spacing:0.4em;
-}
-.produk{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-.card{
-    background:#111;
-    padding:20px;
-    transition:0.3s;
-}
-.card:hover{
-    transform:translateY(-10px);
-}
-.card img{
-    width:100%;
-    height:auto;
-    max-height:300px;
-    object-fit:contain;
-}
-
-.card-info{
-    margin-top:15px;
-}
-.card h3{
-    font-size:14px;
-}
-.price{
-    color:#aaa;
-}
-
-/* INPUT */
-select{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    background:#000;
-    color:#fff;
-    border:1px solid #333;
-}
-
-/* BUTTON */
-button{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    background:#fff;
-    color:#000;
-    border:none;
-    cursor:pointer;
-    transition:0.3s;
-}
-button:hover{
-    background:#333;
-    color:#fff;
-}
-
-/* CHECKOUT */
-.checkout{
-    text-align:center;
-    margin-top:50px;
-}
-
-/* ABOUT */
-.about{
-    padding:100px 40px;
-    text-align:center;
-    max-width:800px;
-    margin:auto;
-}
-.about p{
-    color:#aaa;
-    line-height:1.8;
-}
-
-/* FOOTER */
-footer{
-    padding:40px;
-    text-align:center;
-    color:#555;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-    .hero h1{
-        font-size:2rem;
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav>
+<nav role="navigation" aria-label="Main navigation">
     <h2>MATURED</h2>
     <ul>
-        <li><a href="#">HOME</a></li>
+        <li><a href="#home">HOME</a></li>
         <li><a href="#shop">SHOP</a></li>
         <li><a href="#about">ABOUT</a></li>
     </ul>
-    <div class="cart">🛒 <span id="cart-count">0</span></div>
+    <div class="cart" aria-label="Shopping cart" role="button" tabindex="0">🛒 <span id="cart-count" aria-live="polite">0</span></div>
 </nav>
 
 <!-- HERO -->
@@ -254,9 +33,42 @@ footer{
 
 <!-- VIDEO -->
 <section class="video">
-    <video autoplay muted loop>
+    <video autoplay muted loop playsinline aria-label="Brand video showcase">
         <source src="video/MATURE.mov" type="video/mp4">
+        Your browser does not support the video tag.s
     </video>
+</section>
+
+<!-- LOOKBOOK -->
+<section class="lookbook">
+    <h2>LOOKBOOK</h2>
+
+    <div class="lookbook-grid">
+
+        <div class="look-item large">
+            <img src="images/navy1.jpg" alt="Navy collection showcase - lookbook item">
+        </div>
+
+        <div class="look-item">
+            <img src="images/navy2.jpg" alt="Navy collection detail - lookbook item">
+        </div>
+
+        <div class="look-item text">
+            <p>
+                not everything needs to be said.  
+                some things are worn.
+            </p>
+        </div>
+
+        <div class="look-item">
+            <img src="images/navy1.jpg" alt="Navy collection - lookbook item">
+        </div>
+
+        <div class="look-item large">
+            <img src="images/navy2.jpg" alt="Navy collection final - lookbook item">
+        </div>
+
+    </div>
 </section>
 
 <!-- SHOP -->
@@ -266,52 +78,56 @@ footer{
     <div class="produk">
 
         <div class="card">
-            <img src="images/navy2.jpg">
+            <img src="images/navy2.jpg" alt="Black Tee product image">
             <div class="card-info">
-                <h3>BLACK TEE</h3>
-                <p class="price">Rp 120.000</p>
+                <h3>Maturedz01</h3>
+                <p class="price">Rp 150.000</p>
 
-                <select id="size1">
+                <label for="size1">Size:</label>
+                <select id="size1" aria-label="Choose size for Black Tee">
                     <option>S</option>
                     <option>M</option>
                     <option>L</option>
                     <option>XL</option>
                 </select>
 
-                <select id="warna1">
+                <label for="warna1">Color:</label>
+                <select id="warna1" aria-label="Choose color for Black Tee">
                     <option>BLACK</option>
                     <option>WHITE</option>
                 </select>
 
-                <button onclick="addToCart('BLACK TEE','size1','warna1')">ADD TO CART</button>
+                <button class="add-to-cart-btn" data-product="BLACK TEE" data-size="size1" data-color="warna1">ADD TO CART</button>
             </div>
         </div>
 
         <div class="card">
-            <img src="images/navy1.jpg">
+            <img src="images/navy1.jpg" alt="Hoodie product image">
             <div class="card-info">
                 <h3>HOODIE</h3>
                 <p class="price">Rp 250.000</p>
 
-                <select id="size2">
+                <label for="size2">Size:</label>
+                <select id="size2" aria-label="Choose size for Hoodie">
                     <option>M</option>
                     <option>L</option>
                     <option>XL</option>
                 </select>
 
-                <select id="warna2">
+                <label for="warna2">Color:</label>
+                <select id="warna2" aria-label="Choose color for Hoodie">
                     <option>BLACK</option>
                     <option>CREAM</option>
                 </select>
 
-                <button onclick="addToCart('HOODIE','size2','warna2')">ADD TO CART</button>
+                <button class="add-to-cart-btn" data-product="HOODIE" data-size="size2" data-color="warna2">ADD TO CART</button>
             </div>
         </div>
 
     </div>
 
     <div class="checkout">
-        <button onclick="checkout()">CHECKOUT</button>
+        <button id="checkout-btn">CHECKOUT</button>
     </div>
 </section>
 
@@ -329,32 +145,7 @@ footer{
     © 2026 maturedzinthought
 </footer>
 
-<script>
-let cart = [];
-
-function addToCart(nama, sizeId, warnaId){
-    const size = document.getElementById(sizeId).value;
-    const warna = document.getElementById(warnaId).value;
-
-    cart.push({nama, size, warna});
-    document.getElementById("cart-count").innerText = cart.length;
-}
-
-function checkout(){
-    if(cart.length === 0){
-        alert("Cart kosong 😅");
-        return;
-    }
-
-    let pesan = "Halo, saya ingin order:%0A%0A";
-
-    cart.forEach((item, i) => {
-        pesan += `${i+1}. ${item.nama} - ${item.size} - ${item.warna}%0A`;
-    });
-
-    window.open("https://wa.me/6287824381467?text=" + pesan);
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
