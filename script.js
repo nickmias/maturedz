@@ -1,89 +1,165 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // --- 1. LOADER LOGIC ---
+
+    /* =========================
+       LOADER
+    ========================= */
     const loader = document.getElementById("loader");
+
     window.addEventListener("load", () => {
         setTimeout(() => {
-            loader.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
-            setTimeout(() => {
-                loader.remove();
-            }, 100); 
-        }, 500); 
+            if (loader) {
+                loader.style.clipPath = "polygon(0 0,100% 0,100% 0,0 0)";
+
+                setTimeout(() => {
+                    loader.remove();
+                }, 800);
+            }
+        }, 500);
     });
 
-    // --- 2. SOUND LOGIC ---
+    /* =========================
+       SOUND SYSTEM
+    ========================= */
     const bgSound = document.getElementById("bg-sound");
     const soundToggle = document.getElementById("sound-toggle");
+
     let isPlaying = false;
 
-    // Cek jika tombol sound ada (mencegah error jika dihapus)
     if (soundToggle && bgSound) {
         soundToggle.addEventListener("click", () => {
+
             if (!isPlaying) {
                 bgSound.play();
-                soundToggle.innerText = "SOUND: ON";
+                soundToggle.textContent = "SOUND: ON";
             } else {
                 bgSound.pause();
-                soundToggle.innerText = "SOUND: OFF";
+                soundToggle.textContent = "SOUND: OFF";
             }
+
             isPlaying = !isPlaying;
         });
     }
 
-    // --- 3. CART & NOTIFICATION LOGIC ---
+    /* =========================
+       CART SYSTEM
+    ========================= */
     let cart = [];
-    const cartCountElement = document.getElementById("cart-count");
-    const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+
+    const cartCount = document.getElementById("cart-count");
+    const addButtons = document.querySelectorAll(".add-to-cart-btn");
     const checkoutBtn = document.getElementById("checkout-btn");
 
-    function showNotification(message, isError = false) {
-        const notif = document.createElement("div");
-        notif.innerText = message;
-        Object.assign(notif.style, {
-            position: "fixed", bottom: "20px", right: "20px",
-            backgroundColor: "#000", color: isError ? "red" : "white",
-            padding: "1rem", border: "2px solid", borderColor: isError ? "red" : "white",
-            fontWeight: "700", zIndex: "10000", boxShadow: "5px 5px 0px grey",
-            textTransform: "uppercase", fontFamily: "'Montserrat', sans-serif"
-        });
-        document.body.appendChild(notif);
-        setTimeout(() => notif.remove(), 3000);
+    function updateCartCount() {
+        if (cartCount) {
+            cartCount.textContent = cart.length;
+        }
     }
 
-    addToCartButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            const product = this.getAttribute("data-product");
-            const sizeId = this.getAttribute("data-size");
-            const colorId = this.getAttribute("data-color");
-            
+    function showNotification(message, error = false) {
+
+        const notif = document.createElement("div");
+
+        notif.textContent = message;
+
+        notif.style.position = "fixed";
+        notif.style.bottom = "20px";
+        notif.style.right = "20px";
+        notif.style.padding = "15px 20px";
+        notif.style.background = "#000";
+        notif.style.color = error ? "#ff0000" : "#ffffff";
+        notif.style.border = error
+            ? "2px solid #ff0000"
+            : "2px solid #ffffff";
+
+        notif.style.fontWeight = "700";
+        notif.style.zIndex = "99999";
+        notif.style.textTransform = "uppercase";
+        notif.style.fontFamily = "Montserrat, sans-serif";
+
+        document.body.appendChild(notif);
+
+        setTimeout(() => {
+            notif.remove();
+        }, 2500);
+    }
+
+    addButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const product = button.dataset.product;
+            const sizeId = button.dataset.size;
+            const colorId = button.dataset.color;
+
             const sizeElement = document.getElementById(sizeId);
             const colorElement = document.getElementById(colorId);
+
+            if (!sizeElement || !colorElement) return;
 
             const size = sizeElement.value;
             const color = colorElement.value;
 
-            if (size === "SIZE" || color === "COLOR" || !size || !color) {
-                showNotification("[-] SELECT SIZE/COLOR", true);
+            if (!size || !color) {
+                showNotification("Select Size & Color", true);
                 return;
             }
 
-            cart.push({ product, size, color });
-            cartCountElement.innerText = cart.length;
-            showNotification(`[+] ${product} ADDED`);
+            cart.push({
+                product,
+                size,
+                color
+            });
 
-            // Reset dropdown
+            updateCartCount();
+
+            showNotification(product + " Added");
+
             sizeElement.selectedIndex = 0;
             colorElement.selectedIndex = 0;
         });
+
     });
 
-    checkoutBtn.addEventListener("click", () => {
-        if (cart.length === 0) return showNotification("[-] CART EMPTY", true);
-        
-        let text = "ORDER MATUREDZINTHOUGHT:%0A%0A";
-        cart.forEach((i, index) => text += `[00${index + 1}] ${i.product} - ${i.color} (${i.size})%0A`);
-        text += "%0A*AWAITING CONFIRMATION.*";
-        
-        // Ganti dengan nomor WA aslimu
-        window.open(`https://wa.me/628561422005?text=${text}`, "_blank");
-    });
+    /* =========================
+       CHECKOUT WHATSAPP
+    ========================= */
+
+    if (checkoutBtn) {
+
+        checkoutBtn.addEventListener("click", () => {
+
+            if (cart.length === 0) {
+                showNotification("Cart Empty", true);
+                return;
+            }
+
+            let message = "Halo MATUREDZINTHOUGHT,\n\n";
+            message += "Saya ingin melakukan pemesanan:\n\n";
+
+            cart.forEach((item, index) => {
+
+                message +=
+                    (index + 1) + ". " + item.product + "\n" +
+                    "Size : " + item.size + "\n" +
+                    "Color : " + item.color + "\n\n";
+
+            });
+
+            message += "Mohon konfirmasi ketersediaan barang.\n\n";
+            message += "Terima kasih.";
+
+            // Ganti nomor WA lu di sini
+            const whatsappNumber = "628561422005";
+
+            const whatsappURL =
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                encodeURIComponent(message);
+
+            window.open(whatsappURL, "_blank");
+        });
+
+    }
+
 });
