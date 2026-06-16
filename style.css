@@ -1,198 +1,147 @@
-```css
-/* =========================
-   CAMPAIGN IMAGE
-========================= */
 
-.image-section{
-    width:100%;
-    background:#000;
-    border-top:1px solid #111;
-    border-bottom:1px solid #111;
-}
+<!-- CAMPAIGN IMAGE -->
+<section class="image-section">
+    <img src="images/gambar vertikal.jpeg" alt="Maturedzinthought Campaign">
+</section>
 
-.image-section img{
-    width:100%;
-    height:auto;
-    display:block;
-}
+<!-- SHOP -->
+<section id="shop" class="shop">
 
-/* =========================
-   SHOP
-========================= */
+    <div class="section-header">
+        <h2>NEW DROP [001]</h2>
+    </div>
 
-.shop{
-    padding:80px 30px;
-    background:#000;
-}
+    <div class="produk-grid">
 
-.section-header{
-    text-align:center;
-    margin-bottom:60px;
-}
+        <!-- PRODUCT 1 -->
+        <article class="card">
 
-.section-header h2{
-    font-size:clamp(2rem,4vw,4rem);
-    font-weight:900;
-    letter-spacing:3px;
-}
+            <div class="card-img-wrapper">
+                <img src="images/Destinator 1.jpg" alt="Destinator Shirt">
+            </div>
 
-/* =========================
-   PRODUCT GRID
-========================= */
+            <div class="card-info">
 
-.produk-grid{
-    max-width:1400px;
-    margin:0 auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
+                <h3>DESTINATOR SHIRT</h3>
+                <p class="price">IDR 160.000</p>
 
-/* =========================
-   PRODUCT CARD
-========================= */
+                <div class="selectors">
 
-.card{
-    background:#050505;
-    border:1px solid #1a1a1a;
-    overflow:hidden;
-    transition:all .3s ease;
-}
+                    <select id="size1">
+                        <option value="" disabled selected>SIZE</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
 
-.card:hover{
-    transform:translateY(-6px);
-    border-color:#fff;
-}
+                    <select id="warna1">
+                        <option value="" disabled selected>COLOR</option>
+                        <option>BLACK</option>
+                    </select>
 
-.card-img-wrapper{
-    width:100%;
-    aspect-ratio:4/5;
-    overflow:hidden;
-}
+                </div>
 
-.card-img-wrapper img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.5s;
-}
+                <button
+                    class="add-to-cart-btn"
+                    data-product="DESTINATOR SHIRT"
+                    data-size="size1"
+                    data-color="warna1">
+                    ADD TO CART
+                </button>
 
-.card:hover .card-img-wrapper img{
-    transform:scale(1.05);
-}
+            </div>
 
-/* =========================
-   CARD INFO
-========================= */
+        </article>
 
-.card-info{
-    padding:25px;
-}
+        <!-- PRODUCT 2 -->
+        <article class="card">
 
-.card-info h3{
-    font-size:1.2rem;
-    font-weight:800;
-    margin-bottom:8px;
-}
+            <div class="card-img-wrapper">
+                <img src="images/Destinator 2.jpg" alt="Destinator Shirt">
+            </div>
 
-.price{
-    color:#8d8d8d;
-    margin-bottom:20px;
-    font-weight:700;
-}
+            <div class="card-info">
 
-/* =========================
-   SIZE & COLOR
-========================= */
+                <h3>DESTINATOR SHIRT</h3>
+                <p class="price">IDR 160.000</p>
 
-.selectors{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
-}
+                <div class="selectors">
 
-.selectors select{
-    flex:1;
-    background:#000;
-    color:#fff;
-    border:1px solid #333;
-    padding:12px;
-    outline:none;
-    cursor:pointer;
-}
+                    <select id="size2">
+                        <option value="" disabled selected>SIZE</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
 
-.selectors select:focus{
-    border-color:#fff;
-}
+                    <select id="warna2">
+                        <option value="" disabled selected>COLOR</option>
+                        <option>BLACK</option>
+                    </select>
 
-/* =========================
-   BUTTON
-========================= */
+                </div>
 
-.add-to-cart-btn{
-    width:100%;
-    padding:14px;
-    background:#fff;
-    color:#000;
-    border:none;
-    font-weight:900;
-    cursor:pointer;
-    transition:.3s;
-}
+                <button
+                    class="add-to-cart-btn"
+                    data-product="DESTINATOR SHIRT"
+                    data-size="size2"
+                    data-color="warna2">
+                    ADD TO CART
+                </button>
 
-.add-to-cart-btn:hover{
-    background:#000;
-    color:#fff;
-    border:1px solid #fff;
-}
+            </div>
 
-/* =========================
-   CHECKOUT
-========================= */
+        </article>
 
-.checkout-wrapper{
-    text-align:center;
-    margin-top:60px;
-}
+        <!-- PRODUCT 3 -->
+        <article class="card">
 
-#checkout-btn{
-    padding:16px 40px;
-    background:#fff;
-    color:#000;
-    border:none;
-    font-weight:900;
-    cursor:pointer;
-    transition:.3s;
-}
+            <div class="card-img-wrapper">
+                <img src="images/Anger Face Jorts.jpeg" alt="Anger Face Jorts">
+            </div>
 
-#checkout-btn:hover{
-    background:#000;
-    color:#fff;
-    border:1px solid #fff;
-}
+            <div class="card-info">
 
-/* =========================
-   MOBILE
-========================= */
+                <h3>ANGER FACE JORTS</h3>
+                <p class="price">IDR 270.000</p>
 
-@media(max-width:768px){
+                <div class="selectors">
 
-    .shop{
-        padding:50px 15px;
-    }
+                    <select id="size3">
+                        <option value="" disabled selected>SIZE</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
 
-    .produk-grid{
-        grid-template-columns:1fr;
-        gap:20px;
-    }
+                    <select id="warna3">
+                        <option value="" disabled selected>COLOR</option>
+                        <option>BLACK</option>
+                    </select>
 
-    .card-info{
-        padding:20px;
-    }
+                </div>
 
-    .selectors{
-        flex-direction:column;
-    }
+                <button
+                    class="add-to-cart-btn"
+                    data-product="ANGER FACE JORTS"
+                    data-size="size3"
+                    data-color="warna3">
+                    ADD TO CART
+                </button>
 
-}
-```
+            </div>
+
+        </article>
+
+    </div>
+
+    <div class="checkout-wrapper">
+        <button id="checkout-btn" class="btn-primary">
+            CHECKOUT CART
+        </button>
+    </div>
+
+</section> nah sekarang rapihin css nya biar bisa saling berhubungan sama html nya
