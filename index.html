@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,222 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MATURE FOR FUTURE">
     <meta name="theme-color" content="#000000">
-
     <title>MATUREDZINTHOUGHT | ARCHIVE</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+<!-- CAMPAIGN IMAGE -->
+<section class="image-section">
+    <img src="images/gambar vertikal.jpeg" alt="Maturedzinthought Campaign">
+</section>
 
-    <!-- LOADER -->
-    <div id="loader">
-        <img src="images/logo.png" alt="Maturedzinthought Logo" class="loader-logo">
+<!-- SHOP -->
+<section id="shop" class="shop">
+
+    <div class="section-header">
+        <h2>NEW DROP [001]</h2>
     </div>
 
-    <!-- AUDIO -->
-    <audio id="bg-sound" loop>
-        <source src="audio/ambient.mp3" type="audio/mpeg">
-    </audio>
+    <div class="produk-grid">
 
-    <button id="sound-toggle">SOUND: OFF</button>
+        <!-- PRODUCT 1 -->
+        <article class="card">
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="brand-logo">
-            <a href="#home">
-                <img src="images/logo.png" alt="MATUREDZINTHOUGHT">
-            </a>
-        </div>
+            <div class="card-img-wrapper">
+                <img src="images/Destinator 1.jpg" alt="Destinator Shirt">
+            </div>
 
-        <ul class="nav-links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#shop">SHOP</a></li>
-            <li><a href="#about">ABOUT</a></li>
-        </ul>
+            <div class="card-info">
 
-        <div class="cart">
-            CART [<span id="cart-count">0</span>]
-        </div>
-    </nav>
+                <h3>DESTINATOR SHIRT</h3>
+                <p class="price">IDR 160.000</p>
 
-    <!-- HERO -->
-    <section id="home" class="hero">
+                <div class="selectors">
 
-        <div class="hero-overlay"></div>
+                    <select id="size1">
+                        <option value="" disabled selected>SIZE</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
 
-        <div class="hero-content">
-            <h1>MATUREDZ<br>INTHOUGHT</h1>
-            <a href="#shop" class="btn-primary">ENTER DROP</a>
-        </div>
+                    <select id="warna1">
+                        <option value="" disabled selected>COLOR</option>
+                        <option>BLACK</option>
+                    </select>
 
-    </section>
+                </div>
 
-    <!-- MARQUEE -->
-    <div class="marquee-container">
-        <div class="marquee">
-            <span>MATURE FOR FUTURE /// </span>
-            <span>MATURE FOR FUTURE /// </span>
-            <span>MATURE FOR FUTURE /// </span>
-            <span>MATURE FOR FUTURE /// </span>
-        </div>
+                <button
+                    class="add-to-cart-btn"
+                    data-product="DESTINATOR SHIRT"
+                    data-size="size1"
+                    data-color="warna1">
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 2 -->
+        <article class="card">
+
+            <div class="card-img-wrapper">
+                <img src="images/Destinator 2.jpg" alt="Destinator Shirt">
+            </div>
+
+            <div class="card-info">
+
+                <h3>DESTINATOR SHIRT</h3>
+                <p class="price">IDR 160.000</p>
+
+                <div class="selectors">
+
+                    <select id="size2">
+                        <option value="" disabled selected>SIZE</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+
+                    <select id="warna2">
+                        <option value="" disabled selected>COLOR</option>
+                        <option>BLACK</option>
+                    </select>
+
+                </div>
+
+                <button
+                    class="add-to-cart-btn"
+                    data-product="DESTINATOR SHIRT"
+                    data-size="size2"
+                    data-color="warna2">
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </article>
+
+        <!-- PRODUCT 3 -->
+        <article class="card">
+
+            <div class="card-img-wrapper">
+                <img src="images/Anger Face Jorts.jpeg" alt="Anger Face Jorts">
+            </div>
+
+            <div class="card-info">
+
+                <h3>ANGER FACE JORTS</h3>
+                <p class="price">IDR 270.000</p>
+
+                <div class="selectors">
+
+                    <select id="size3">
+                        <option value="" disabled selected>SIZE</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+
+                    <select id="warna3">
+                        <option value="" disabled selected>COLOR</option>
+                        <option>BLACK</option>
+                    </select>
+
+                </div>
+
+                <button
+                    class="add-to-cart-btn"
+                    data-product="ANGER FACE JORTS"
+                    data-size="size3"
+                    data-color="warna3">
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </article>
+
     </div>
 
-    <!-- SHOP -->
-    <section id="shop" class="shop">
+    <div class="checkout-wrapper">
+        <button id="checkout-btn" class="btn-primary">
+            CHECKOUT CART
+        </button>
+    </div>
 
-        <div class="section-header">
-            <h2>NEW DROP [001]</h2>
-        </div>
-
-        <div class="produk-grid">
-
-            <!-- DESTINATOR 1 -->
-            <article class="card">
-                <div class="card-img-wrapper">
-                    <img src="images/Destinator 1.jpg" alt="Destinator Shirt">
-                </div>
-
-                <div class="card-info">
-                    <h3>DESTINATOR SHIRT</h3>
-                    <p class="price">IDR 160.000</p>
-
-                    <div class="selectors">
-                        <select id="size1">
-                            <option disabled selected>SIZE</option>
-                            <option>S</option>
-                            <option>M</option>
-                            <option>L</option>
-                            <option>XL</option>
-                        </select>
-
-                        <select id="warna1">
-                            <option disabled selected>COLOR</option>
-                            <option>BLACK</option>
-                        </select>
-                    </div>
-
-                    <button class="add-to-cart-btn"
-                        data-product="DESTINATOR SHIRT"
-                        data-size="size1"
-                        data-color="warna1">
-                        ADD TO CART
-                    </button>
-                </div>
-            </article>
-
-            <!-- DESTINATOR 2 -->
-            <article class="card">
-                <div class="card-img-wrapper">
-                    <img src="images/Destinator 2.jpg" alt="Destinator Shirt">
-                </div>
-
-                <div class="card-info">
-                    <h3>DESTINATOR SHIRT</h3>
-                    <p class="price">IDR 160.000</p>
-
-                    <div class="selectors">
-                        <select id="size2">
-                            <option disabled selected>SIZE</option>
-                            <option>S</option>
-                            <option>M</option>
-                            <option>L</option>
-                            <option>XL</option>
-                        </select>
-
-                        <select id="warna2">
-                            <option disabled selected>COLOR</option>
-                            <option>BLACK</option>
-                        </select>
-                    </div>
-
-                    <button class="add-to-cart-btn"
-                        data-product="DESTINATOR SHIRT"
-                        data-size="size2"
-                        data-color="warna2">
-                        ADD TO CART
-                    </button>
-                </div>
-            </article>
-
-            <!-- JORTS -->
-            <article class="card">
-                <div class="card-img-wrapper">
-                    <img src="images/Anger Face Jorts.jpg" alt="Anger Face Jorts">
-                </div>
-
-                <div class="card-info">
-                    <h3>ANGER FACE JORTS</h3>
-                    <p class="price">IDR 250.000</p>
-
-                    <div class="selectors">
-                        <select id="size3">
-                            <option disabled selected>SIZE</option>
-                            <option>S</option>
-                            <option>M</option>
-                            <option>L</option>
-                            <option>XL</option>
-                        </select>
-
-                        <select id="warna3">
-                            <option disabled selected>COLOR</option>
-                            <option>BLACK</option>
-                        </select>
-                    </div>
-
-                    <button class="add-to-cart-btn"
-                        data-product="ANGER FACE JORTS"
-                        data-size="size3"
-                        data-color="warna3">
-                        ADD TO CART
-                    </button>
-                </div>
-            </article>
-
-        </div>
-
-        <div class="checkout-wrapper">
-            <button id="checkout-btn" class="btn-primary">
-                CHECKOUT CART
-            </button>
-        </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about">
-
-        <h2>MANIFESTO</h2>
-
-        <p>
-            Built from underground culture, hardcore music,
-            street art, and everyday chaos.
-            Maturedzinthought is more than clothing —
-            it's a statement.
-        </p>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-content">
-
-            <img
-                src="images/logo.png"
-                alt="Maturedzinthought"
-                style="height:30px;margin-bottom:10px;filter:invert(1);"
-            >
-
-            <p>© 2025 ALL RIGHTS RESERVED.</p>
-
-        </div>
-
-    </footer>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+</section>
 ```
