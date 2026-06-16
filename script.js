@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const whatsappURL =
                 "https://wa.me/" +
-                whatsappNumber +
+                whatsappNumber = "628561422005";
                 "?text=" +
                 encodeURIComponent(message);
 
