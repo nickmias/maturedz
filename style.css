@@ -1,147 +1,395 @@
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
 
-<!-- CAMPAIGN IMAGE -->
-<section class="image-section">
-    <img src="images/gambar vertikal.jpeg" alt="Maturedzinthought Campaign">
-</section>
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --border-color: #333333;
+}
 
-<!-- SHOP -->
-<section id="shop" class="shop">
+html {
+    scroll-behavior: smooth;
+}
 
-    <div class="section-header">
-        <h2>NEW DROP [001]</h2>
-    </div>
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #fff; border-radius: 0; }
 
-    <div class="produk-grid">
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    cursor: crosshair;
+}
 
-        <!-- PRODUCT 1 -->
-        <article class="card">
+/* LOADER SCREEN */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: clip-path 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
 
-            <div class="card-img-wrapper">
-                <img src="images/Destinator 1.jpg" alt="Destinator Shirt">
-            </div>
+.loader-logo {
+    width: 300px;
+    height: auto;
+    animation: pulse 0.5s infinite;
+}
 
-            <div class="card-info">
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.95); }
+}
 
-                <h3>DESTINATOR SHIRT</h3>
-                <p class="price">IDR 160.000</p>
+/* SOUND TOGGLE BUTTON */
+#sound-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+    font-size: 10px;
+    z-index: 1000;
+    cursor: pointer;
+}
 
-                <div class="selectors">
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    z-index: 100;
+}
 
-                    <select id="size1">
-                        <option value="" disabled selected>SIZE</option>
-                        <option>S</option>
-                        <option>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                    </select>
+.brand-logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
 
-                    <select id="warna1">
-                        <option value="" disabled selected>COLOR</option>
-                        <option>BLACK</option>
-                    </select>
+.brand-logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
 
-                </div>
+.brand-logo img:hover {
+    transform: scale(1.05);
+}
 
-                <button
-                    class="add-to-cart-btn"
-                    data-product="DESTINATOR SHIRT"
-                    data-size="size1"
-                    data-color="warna1">
-                    ADD TO CART
-                </button>
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
 
-            </div>
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
 
-        </article>
+.nav-links a:hover {
+    color: #888;
+}
 
-        <!-- PRODUCT 2 -->
-        <article class="card">
+.cart {
+    font-weight: 700;
+    cursor: pointer;
+}
 
-            <div class="card-img-wrapper">
-                <img src="images/Destinator 2.jpg" alt="Destinator Shirt">
-            </div>
+/* HERO SECTION */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+}
 
-            <div class="card-info">
+.hero-content h1 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    letter-spacing: -3px;
+    text-shadow: 6px 6px 0px #222;
+}
 
-                <h3>DESTINATOR SHIRT</h3>
-                <p class="price">IDR 160.000</p>
+/* BUTTONS */
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    font-weight: 900;
+    border: 2px solid var(--text-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
 
-                <div class="selectors">
+.btn-primary:hover {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
 
-                    <select id="size2">
-                        <option value="" disabled selected>SIZE</option>
-                        <option>S</option>
-                        <option>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                    </select>
+/* MARQUEE */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
 
-                    <select id="warna2">
-                        <option value="" disabled selected>COLOR</option>
-                        <option>BLACK</option>
-                    </select>
+.marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+    font-weight: 700;
+}
 
-                </div>
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 
-                <button
-                    class="add-to-cart-btn"
-                    data-product="DESTINATOR SHIRT"
-                    data-size="size2"
-                    data-color="warna2">
-                    ADD TO CART
-                </button>
+/* VIDEO */
+.video-section {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
 
-            </div>
+.video-section video {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%);
+}
 
-        </article>
+/* SHOP */
+.shop {
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
 
-        <!-- PRODUCT 3 -->
-        <article class="card">
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    text-align: center;
+}
 
-            <div class="card-img-wrapper">
-                <img src="images/Anger Face Jorts.jpeg" alt="Anger Face Jorts">
-            </div>
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-            <div class="card-info">
+.card {
+    border: 1px solid var(--border-color);
+    background-color: #050505;
+    transition: transform 0.3s ease;
+}
 
-                <h3>ANGER FACE JORTS</h3>
-                <p class="price">IDR 270.000</p>
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #fff;
+}
 
-                <div class="selectors">
+.card-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
 
-                    <select id="size3">
-                        <option value="" disabled selected>SIZE</option>
-                        <option>S</option>
-                        <option>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                    </select>
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-                    <select id="warna3">
-                        <option value="" disabled selected>COLOR</option>
-                        <option>BLACK</option>
-                    </select>
+.card-info {
+    padding: 1.5rem;
+}
 
-                </div>
+.card-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
 
-                <button
-                    class="add-to-cart-btn"
-                    data-product="ANGER FACE JORTS"
-                    data-size="size3"
-                    data-color="warna3">
-                    ADD TO CART
-                </button>
+.price {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #aaa;
+}
 
-            </div>
+.selectors {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
 
-        </article>
+select {
+    flex: 1;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem;
+    outline: none;
+    cursor: pointer;
+}
 
-    </div>
+select option {
+    background: black;
+    color: white;
+}
 
-    <div class="checkout-wrapper">
-        <button id="checkout-btn" class="btn-primary">
-            CHECKOUT CART
-        </button>
-    </div>
+.add-to-cart-btn {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-</section> nah sekarang rapihin css nya biar bisa saling berhubungan sama html nya
+.add-to-cart-btn:hover {
+    background: white;
+    color: black;
+}
+
+.checkout-wrapper {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+/* ABOUT */
+.about {
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    background: #050505;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #888;
+}
+
+/* FOOTER */
+footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content p {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* RESPONSIVE */
+/* =========================================
+   RESPONSIVE (KHUSUS LAYAR HP & TABLET) 
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Navbar di HP: Biar logo & cart rapi */
+    nav {
+        padding: 1rem;
+    }
+    
+    .brand-logo img {
+        height: 30px; /* Logo sedikit dikecilin di HP */
+    }
+
+    /* (Sementara menu link disembunyikan biar ga nutupin layar) */
+    .nav-links { 
+        display: none; 
+    }
+
+    /* 2. Ukuran Teks Hero/Home */
+    .hero-content h1 { 
+        font-size: 3.5rem; 
+        letter-spacing: -2px;
+    }
+
+    /* 3. Jarak / Spacing Section */
+    .shop, .about {
+        padding: 3rem 1rem; /* Padding kiri-kanan dikurangin biar produk lebih lega */
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* 4. Grid Produk: Memaksa 1 baris 1 produk di HP biar fotonya jelas */
+    .produk-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* 5. Loader Logo */
+    .loader-logo {
+        width: 100px;
+    }
+}
+
+/* SOLD OUT STAMP */
+.sold-out {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.sold-out::after {
+    content: "SOLD OUT";
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    background: #ff0000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-weight: 900;
+    border: 2px solid #fff;
+    z-index: 10;
+}
